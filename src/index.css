@@ -1,0 +1,183 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 50% 98%;
+    --foreground: 224 71% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 222 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 222 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-primary/10 selection:text-primary;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-900 dark:to-slate-800 text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/40 dark:bg-black/30 border border-white/30 dark:border-white/10 shadow-xl;
+  }
+  
+  .weather-glass {
+    @apply bg-white/30 dark:bg-black/20 border border-white/30 dark:border-white/10 shadow-lg;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .shimmer {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-shimmer before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent;
+  }
+}
+
+#root {
+  @apply flex flex-col min-h-screen w-full;
+}
+
+/* Weather background gradients */
+.bg-weather-clear-day {
+  @apply bg-gradient-to-b from-blue-400 to-blue-300;
+}
+
+.bg-weather-clear-night {
+  @apply bg-gradient-to-b from-slate-900 to-blue-900;
+}
+
+.bg-weather-clouds-day {
+  @apply bg-gradient-to-b from-blue-400 to-gray-300;
+}
+
+.bg-weather-clouds-night {
+  @apply bg-gradient-to-b from-slate-800 to-slate-600;
+}
+
+.bg-weather-rain-day {
+  @apply bg-gradient-to-b from-blue-500 to-blue-700;
+}
+
+.bg-weather-rain-night {
+  @apply bg-gradient-to-b from-slate-900 to-blue-800;
+}
+
+.bg-weather-snow-day {
+  @apply bg-gradient-to-b from-blue-200 to-gray-100;
+}
+
+.bg-weather-snow-night {
+  @apply bg-gradient-to-b from-slate-800 to-slate-700;
+}
+
+.bg-weather-thunderstorm {
+  @apply bg-gradient-to-b from-slate-800 to-purple-900;
+}
+
+.bg-weather-atmosphere {
+  @apply bg-gradient-to-b from-gray-400 to-gray-500;
+}
+
+/* Animation utilities */
+.transition-all-300 {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.transition-transform-300 {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.transition-opacity-300 {
+  @apply transition-opacity duration-300 ease-in-out;
+}
+
+/* Hover effects */
+.hover-scale {
+  @apply hover:scale-105 transition-transform duration-300;
+}
+
+.hover-lift {
+  @apply hover:-translate-y-1 transition-transform duration-300;
+}
